@@ -1,0 +1,228 @@
+{% extends 'UserI.html.twig' %}
+
+{% block title %}Utilisateur{% endblock %}
+{% block settings %}
+{% endblock %}
+{% block dropMenu %}
+{% endblock %}
+{% block MegaMenu %}
+{% endblock %}
+{% block contact %}
+{% endblock %}
+{% block main %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f0f2f5;
+    }
+    .navbar {
+        background-color: #4b7bec; /* Lighter shade of blue */
+        color: #fff;
+        padding: 10px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .navbar h1 {
+        font-size: 24px;
+        margin: 0;
+        display: flex;
+        align-items: center;
+    }
+    .navbar h1 img {
+        width: 40px;
+        height: auto;
+        margin-right: 10px;
+    }
+    .navbar h1 span {
+        font-weight: bold;
+        font-size: 1.2em;
+    }
+    .navbar ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        align-items: center;
+    }
+    .navbar li {
+        margin-right: 20px;
+    }
+    .navbar li a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 18px;
+        transition: color 0.3s;
+    }
+    .navbar li a:hover {
+        color: #a5b1c2; /* Lighter shade of blue on hover */
+    }
+    .search-bar {
+        flex-grow: 1;
+        margin-left: 20px;
+    }
+    .search-bar input {
+        padding: 8px 12px;
+        border-radius: 20px;
+        border: 1px solid #ddd;
+        width: 500px;
+        box-sizing: border-box;
+    }
+    .search-bar input:focus {
+        outline: none;
+        border-color: #4b7bec; /* Lighter shade of blue */
+    }
+    .search-button {
+        background-color: #4b7bec; /* Lighter shade of blue */
+        color: #fff;
+        border: none;
+        padding: 8px;
+        border-radius: 50px;
+        cursor: pointer;
+        margin-left: 10px;
+        transition: background-color 0.3s;
+    }
+    .search-button:hover {
+        background-color: #6f9cec; /* Slightly darker shade of blue on hover */
+    }
+    /* Styles for the navbar are omitted for brevity */
+    /* You can keep the same styles as provided above */
+
+    .content {
+        max-width: 800px;
+        margin: 20px auto;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+    }
+    .user-info {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+    .user-info img {
+        width: 150px; /* Increased size for user avatar */
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-right: 20px;
+    }
+    .user-info h2 {
+        margin: 0;
+        font-size: 28px; /* Increased font size for user name */
+        color: #333;
+    }
+    .user-info p {
+        margin: 0;
+        color: #666;
+    }
+    .user-details {
+        padding: 20px;
+        border-top: 1px solid #ddd;
+    }
+    .user-details h3 {
+        margin-top: 0;
+        font-size: 24px; /* Increased font size for section headings */
+        color: #333;
+    }
+    .user-details p {
+        color: #666;
+    }
+    .message-button {
+        background-color: #4b7bec;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s;
+        margin-left: 20px; /* Added margin to separate button from user info */
+    }
+    .message-button:hover {
+        background-color: #6f9cec;
+    }
+
+    .post {
+        border-bottom: 1px solid #ddd;
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+    }
+    .post:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+        padding-bottom: 0;
+    }
+    .post img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-right: 15px;
+    }
+    .post-content {
+        display: flex;
+        align-items: flex-start;
+    }
+    .post-content p {
+        margin: 0;
+        color: #333;
+    }
+    .post-content .post-text {
+        flex-grow: 1;
+    }
+    .post-meta {
+        margin-top: 10px;
+        font-size: 14px;
+        color: #666;
+        display: flex;
+        align-items: center;
+    }
+    .post-meta button {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        font-size: 14px;
+        color: #666;
+        margin-right: 20px;
+        transition: color 0.3s;
+    }
+    .post-meta button:hover {
+        color: #4b7bec; /* Lighter shade of blue on hover */
+    }
+    .post-meta button i {
+        margin-right: 5px;
+    }
+    .content {
+        max-width: 800px;
+        margin: 20px auto;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+    }
+</style>
+<div class="content">
+    <div class="user-info">
+        <img src="https://via.placeholder.com/150" alt="User Avatar">
+        <div>
+            <h2>{{ utilisateur.prenom }} {{ utilisateur.nom }}</h2>
+            <p>{{ utilisateur.gender ? 'Male' : 'Female' }}</p>
+        </div>
+        <button class="message-button"><i class="fas fa-comment"></i>Message</button>
+    </div>
+
+    <div class="user-details">
+        <h3>Profession : {{ utilisateur.profession }}</h3>
+
+
+        <h3>Contact Information</h3>
+        <p>Email: {{ utilisateur.email }}</p>
+    </div>
+</div>
+{% endblock %}

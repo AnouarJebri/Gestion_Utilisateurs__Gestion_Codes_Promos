@@ -1,0 +1,66 @@
+{% extends 'TableUtilisateur.html.twig' %}
+
+{% block title %}CodePromos index{% endblock %}
+
+{% block body %}
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const searchInput = document.getElementById('searchInput');
+                const tableRows = document.querySelectorAll('tbody tr');
+
+                searchInput.addEventListener('input', function () {
+                    const searchTerm = searchInput.value.trim().toLowerCase();
+
+                    tableRows.forEach(function (row) {
+                        const cells = row.querySelectorAll('td');
+                        let matchFound = false;
+
+                        cells.forEach(function (cell) {
+                            const cellText = cell.textContent.trim().toLowerCase();
+                            if (cellText.includes(searchTerm)) {
+                                matchFound = true;
+                            }
+                        });
+
+                        if (matchFound) {
+                            row.style.display = '';
+                        } else {
+                            row.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        </script>
+    <h1>CodePromos index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>DateExpiration</th>
+                <th>User</th>
+                <th>Code</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for code_promo in code_promos %}
+            <tr>
+                <td>{{ code_promo.dateExpiration ? code_promo.dateExpiration|date('Y-m-d') : '' }}</td>
+                <td>{{ code_promo.utilisateur.email }}</td>
+                <td>{{ code_promo.code }}</td>
+                <td>
+                    <a href="{{ path('app_code_promos_show', {'id': code_promo.id}) }}">show</a>
+                    <a href="{{ path('app_code_promos_edit', {'id': code_promo.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_code_promos_new') }}">Create new</a>
+{% endblock %}

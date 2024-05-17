@@ -1,0 +1,23 @@
+<form id="updateRoleForm_{{ utilisateur.id }}" method="post" action="{{ path('app_utilisateur_edit_role', {'id': utilisateur.id}) }}" style="display: inline;" onclick="return confirm('Are you sure you want to update the role?')">
+    <input type="hidden" name="_method" value="POST">
+    <input type="hidden" name="_token" value="{{ csrf_token('update_role' ~ utilisateur.id) }}">
+    {% set hasUserRole = false %}
+    {% set hasAdminRole = false %}
+    {% for role in utilisateur.roles %}
+        {% if role == 'ROLE_USER' %}
+            {% set hasUserRole = true %}
+        {% elseif role == 'ROLE_ADMIN' %}
+            {% set hasAdminRole = true %}
+        {% endif %}
+    {% endfor %}
+    {% if hasAdminRole %}
+        {# User has both ROLE_USER and ROLE_ADMIN roles #}
+        <button class="btn btn-primary" >UpdateToUser</button>
+    {% else %}
+        {# User has only ROLE_USER role #}
+        <button class="btn btn-primary" >UpdateToAdmin</button>
+    {% endif %}
+
+</form>
+
+

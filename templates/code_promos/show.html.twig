@@ -1,0 +1,30 @@
+{% extends 'TableUtilisateur.html.twig' %}
+
+{% block title %}CodePromos{% endblock %}
+
+{% block body %}
+    <h1>CodePromos</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ code_promo.id }}</td>
+            </tr>
+            <tr>
+                <th>DateExpiration</th>
+                <td>{{ code_promo.dateExpiration ? code_promo.dateExpiration|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Code</th>
+                <td>{{ code_promo.code }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_code_promos_index') }}">back to list</a>
+
+    <a href="{{ path('app_code_promos_edit', {'id': code_promo.id}) }}">edit</a>
+
+    {{ include('code_promos/_delete_form.html.twig') }}
+{% endblock %}

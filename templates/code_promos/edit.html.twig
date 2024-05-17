@@ -1,0 +1,13 @@
+{% extends 'TableUtilisateur.html.twig' %}
+
+{% block title %}Edit CodePromos{% endblock %}
+
+{% block body %}
+    <h1>Edit CodePromos</h1>
+
+    {{ include('code_promos/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_code_promos_index') }}">back to list</a>
+
+    {{ include('code_promos/_delete_form.html.twig') }}
+{% endblock %}

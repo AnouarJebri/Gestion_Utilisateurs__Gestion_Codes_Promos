@@ -1,0 +1,22 @@
+{% extends 'UserI.html.twig' %}
+
+{% block dropMenu %}
+    {% if app.user %}
+        {% set utilisateur = app.user %}
+        {# Now you can access properties of the current user #}
+        <li><a href="{{ url('app_utilisateur_showmyprofile', {'id': utilisateur.id}) }}">Profile</a></li>
+        <li class="dropdown has-dropdown"><a href="#"><span>Account settings</span> <i class="bi bi-chevron-down"></i></a>
+
+            <ul>
+                <li><a href="{{ path('app_utilisateur_edit', {'id': utilisateur.id}) }}">edit profile</a></li>
+                <li><a href="{{ path('app_utilisateur_delete', {'id': utilisateur.id}) }}">delete profile</a></li>
+            </ul>
+        </li>
+        <li><a href="{{ url('app_logout') }}">logout</a></li>
+    {% else %}
+        {# Handle the case when the user is not logged in #}
+        <p>You are not logged in.</p>
+    {% endif %}
+{% endblock %}
+{% block MegaMenu %}
+{% endblock %}

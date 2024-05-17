@@ -1,0 +1,82 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h2>Register</h2>
+
+        {# Display flash messages for email verification errors #}
+        {% for flash_error in app.flashes('verify_email_error') %}
+            <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
+        {% endfor %}
+
+        {# Start the form and handle errors #}
+        {{ form_start(registrationForm) }}
+        <div class="form-group">
+            {{ form_row(registrationForm.nom) }}
+            {% for error in registrationForm.nom.vars.errors %}
+                <div class="error-message">{{ error.message }}</div>
+            {% endfor %}
+        </div>
+        <div class="form-group">
+            {{ form_row(registrationForm.prenom) }}
+            {% for error in registrationForm.prenom.vars.errors %}
+                <div class="error-message">{{ error.message }}</div>
+            {% endfor %}
+        </div>
+        <div class="form-group">
+            {{ form_row(registrationForm.gender) }}
+            {% for error in registrationForm.gender.vars.errors %}
+                <div class="error-message">{{ error.message }}</div>
+            {% endfor %}
+        </div>
+        <!--Is this one down here ok knowing that you have my form-->
+        <div class="form-group">
+            {{ form_row(registrationForm.birthDay) }}
+            {% for error in registrationForm.birthDay.vars.errors %}
+                <div class="error-message">{{ error.message }}</div>
+            {% endfor %}
+        </div>
+        <div class="form-group">
+            {{ form_row(registrationForm.email) }}
+            {% for error in registrationForm.email.vars.errors %}
+                <div class="error-message">{{ error.message }}</div>
+            {% endfor %}
+        </div>
+        <div class="form-group">
+            {{ form_row(registrationForm.profession) }}
+            {% for error in registrationForm.profession.vars.errors %}
+                <div class="error-message">{{ error.message }}</div>
+            {% endfor %}
+        </div>
+        <div class="form-group">
+            <div class="checkbox-wrapper">
+            {{ form_row(registrationForm.agreeTerms) }}
+            {% for error in registrationForm.agreeTerms.vars.errors %}
+                <div class="error-message">{{ error.message }}</div>
+            {% endfor %}
+            </div>
+        </div>
+        <div class="form-group">
+            {{ form_row(registrationForm.plainPassword, { 'label': 'Password' }) }}
+            {% for error in registrationForm.plainPassword.vars.errors %}
+                <div class="error-message">{{ error.message }}</div>
+            {% endfor %}
+        </div>
+        <button type="submit" class="btn btn-primary">Register</button>
+        <div class="footer">
+            Already have an account? <a href="{{ path('app_login') }}">Sign in</a>
+        </div>
+        {{ form_end(registrationForm) }}
+    </div>
+{% endblock %}
+{% block stylesheets %}
+    <style>
+        /* Custom CSS for adjusting checkbox position */
+        .checkbox-wrapper {
+            margin-left: 80px; /* Adjust as needed */
+
+        }
+    </style>
+{% endblock %}

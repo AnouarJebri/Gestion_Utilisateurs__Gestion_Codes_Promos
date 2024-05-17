@@ -1,0 +1,81 @@
+{% extends 'TableUtilisateur.html.twig' %}
+
+{% block title %}Utilisateur index{% endblock %}
+
+{% block body %}
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const searchInput = document.getElementById('searchInput');
+            const tableRows = document.querySelectorAll('tbody tr');
+
+            searchInput.addEventListener('input', function () {
+                const searchTerm = searchInput.value.trim().toLowerCase();
+
+                tableRows.forEach(function (row) {
+                    const cells = row.querySelectorAll('td');
+                    let matchFound = false;
+
+                    cells.forEach(function (cell) {
+                        const cellText = cell.textContent.trim().toLowerCase();
+                        if (cellText.includes(searchTerm)) {
+                            matchFound = true;
+                        }
+                    });
+
+                    if (matchFound) {
+                        row.style.display = '';
+                    } else {
+                        row.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+    <h1>Listes Utilisateur</h1>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+
+                <th>Email</th>
+                <th>Roles</th>
+
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Gender</th>
+                <th>Profession</th>
+                <th>Solde</th>
+                <th>Status</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for utilisateur in utilisateur %}
+            <tr>
+
+                <td>{{ utilisateur.email }}</td>
+                <td>{{ utilisateur.roles ? utilisateur.roles|json_encode : '' }}</td>
+
+                <td>{{ utilisateur.nom }}</td>
+                <td>{{ utilisateur.prenom }}</td>
+                <td>{{ utilisateur.gender ? 'Male' : 'Female' }}</td>
+                <td>{{ utilisateur.profession }}</td>
+                <td>{{ utilisateur.solde }}</td>
+                <td>{{ utilisateur.enLigne ? 'Online' : 'Offline' }}</td>
+                <td>
+                    <a href="{{ path('app_utilisateur_showmyprofile', {'id': utilisateur.id}) }}">show</a>
+                    <br>
+                    {{ include('utilisateur/edit_role.html.twig') }}
+                    <br>
+                    {{ include('utilisateur/_delete_form.html.twig') }}
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="11">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}
