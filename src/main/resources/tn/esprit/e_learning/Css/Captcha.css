@@ -1,0 +1,28 @@
+.button
+{
+    -fx-background-color : #459BFD;
+    -fx-border-radius: 20px; /* Rayon de courbure de la bordure */
+    -fx-background-radius: 20px; /* Rayon de courbure du fond */
+}
+.button:hover
+{
+    -fx-background-color : #07f7f7;
+    -fx-border-radius: 20px; /* Rayon de courbure de la bordure */
+    -fx-background-radius: 20px; /* Rayon de courbure du fond */
+}
+.button:pressed
+{
+    -fx-background-color : #459BFD;
+    -fx-border-radius: 20px; /* Rayon de courbure de la bordure */
+    -fx-background-radius: 20px; /* Rayon de courbure du fond */
+}
+.text-field {
+    -fx-background-color: #FFFFFF; /* Couleur de fond blanche */
+    -fx-border-color: #459BFD; /* Couleur de la bordure */
+    -fx-border-width: 1px; /* Largeur de la bordure */
+    -fx-background-radius: 20px; /* Rayon de courbure du fond */
+    -fx-border-radius: 20px; /* Rayon de courbure de la bordure */
+    -fx-text-color: #000000;
+}
+.label {
+    -fx-font-weight: bold;}

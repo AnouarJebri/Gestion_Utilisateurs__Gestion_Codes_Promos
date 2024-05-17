@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@Css/Admin.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.e_learning.controllers.UtilisateurI">
+   <children>
+      <Label layoutX="157.0" layoutY="24.0" text="Bienvenue chez Studentors">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <MenuButton fx:id="Parametres" layoutX="482.0" layoutY="29.0" mnemonicParsing="false" text="paramétres">
+        <items>
+          <MenuItem mnemonicParsing="false" onAction="#ModifierCompte" text="Modifier compte" />
+          <MenuItem mnemonicParsing="false" onAction="#SupprimerC" text="Supprimer" />
+            <MenuItem mnemonicParsing="false" onAction="#ModifyPassword" text="modifier mot de passe" />
+            <MenuItem mnemonicParsing="false" onAction="#logoutU" text="Logout" />
+        </items>
+      </MenuButton>
+      <ImageView fitHeight="74.0" fitWidth="92.0" layoutX="18.0" layoutY="14.0" opacity="0.62">
+         <image>
+            <Image url="@Images/2%20(1).png" />
+         </image>
+      </ImageView>
+      <ListView fx:id="ListCodePromos" layoutX="81.0" layoutY="148.0" prefHeight="200.0" prefWidth="481.0" />
+      <Label fx:id="SoldeV" layoutX="413.0" layoutY="83.0" prefHeight="35.0" prefWidth="152.0" />
+   </children>
+</AnchorPane>

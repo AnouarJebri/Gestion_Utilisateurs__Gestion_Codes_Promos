@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="531.0" prefWidth="600.0" stylesheets="@Css/Admin.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.e_learning.controllers.Inscription">
+   <children>
+      <TextField fx:id="NomTf" layoutX="229.0" layoutY="123.0" promptText="Nom" />
+      <TextField fx:id="PrenomTf" layoutX="229.0" layoutY="169.0" promptText="Prénom" />
+      <TextField fx:id="ProfessionTf" layoutX="229.0" layoutY="283.0" promptText="Profession" />
+      <TextField fx:id="emailTf" layoutX="229.0" layoutY="325.0" promptText="email" />
+      <Button layoutX="185.0" layoutY="456.0" mnemonicParsing="false" onAction="#ajouterUtilisateur" prefHeight="30.0" prefWidth="110.0" text="s'inscrire" />
+      <Button layoutX="323.0" layoutY="456.0" mnemonicParsing="false" onAction="#authentifierUtilisateur" prefHeight="30.0" prefWidth="109.0" text="s'authentifier" textFill="#151515" />
+      <RadioButton fx:id="MaleButton" layoutX="229.0" layoutY="237.0" mnemonicParsing="false" text="Male">
+         <toggleGroup>
+            <ToggleGroup fx:id="gender" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="FemaleButton" layoutX="318.0" layoutY="237.0" mnemonicParsing="false" text="Female" toggleGroup="$gender" />
+      <Label layoutX="185.0" layoutY="34.0" prefHeight="56.0" prefWidth="266.0" text=" INSCRIPTION">
+         <font>
+            <Font size="39.0" />
+         </font>
+      </Label>
+      <PasswordField fx:id="mdpTf" layoutX="229.0" layoutY="374.0" promptText="mot de passe" />
+      <ImageView fitHeight="106.0" fitWidth="130.0" layoutX="37.0" layoutY="37.0" opacity="0.62">
+         <image>
+            <Image url="@Images/2%20(1).png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="116.0" fitWidth="130.0" layoutX="456.0" layoutY="32.0" opacity="0.62">
+         <image>
+            <Image url="@Images/2%20(1).png" />
+         </image>
+      </ImageView>
+      <DatePicker fx:id="birthdayD" layoutX="229.0" layoutY="415.0" promptText="Date de Naissance" />
+   </children>
+</AnchorPane>

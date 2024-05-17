@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@Css/Admin.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.e_learning.controllers.CodeResetCompte">
+   <children>
+      <Label layoutX="208.0" layoutY="25.0" text="CHECK IN CODE">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <TextField fx:id="resetCodeTextField" layoutX="164.0" layoutY="120.0" prefHeight="26.0" prefWidth="226.0" promptText="Entrer le code envoyé par mail" />
+      <Button layoutX="402.0" layoutY="120.0" mnemonicParsing="false" onAction="#checkResetCode" text="Check" />
+      <Button layoutX="36.0" layoutY="30.0" mnemonicParsing="false" onAction="#Goback" text="&lt;--Back" />
+      <ImageView fitHeight="105.0" fitWidth="102.0" layoutX="465.0" layoutY="14.0" opacity="0.62">
+         <image>
+            <Image url="@Images/2%20(1).png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
